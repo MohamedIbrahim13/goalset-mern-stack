@@ -2,12 +2,11 @@ import axios from "axios";
 
 const API_URL = "https://goalsetter-api.vercel.app/api/goals";
 
-export const getAll = token => async dispatch => {
+export const getAll = () => async dispatch => {
   try {
-    const { data } = await axios.get(`${API_URL}/`, {
+    const { data } = await axios.get(API_URL, {
       headers: {
-        "Access-Control-Allow-Origin": "*",
-        Authorization: `Bearer ${token}`,
+        "Access-Control-Allow-Origin": "*"
       },
     });
     //console.log("token", token);
@@ -17,12 +16,11 @@ export const getAll = token => async dispatch => {
   }
 };
 
-export const addGoal = (goalData, token) => async dispatch => {
+export const addGoal = (goalData) => async dispatch => {
   try {
-    const { data } = await axios.post(`${API_URL}/`, goalData, {
+    const { data } = await axios.post(API_URL, goalData, {
       headers: {
-        "Access-Control-Allow-Origin": "*",
-        Authorization: `Bearer ${token}`,
+        "Access-Control-Allow-Origin": "*"
       },
     });
     //console.log("token", token);
@@ -32,12 +30,11 @@ export const addGoal = (goalData, token) => async dispatch => {
   }
 };
 
-export const deleteGoal = (goalId, token) => async dispatch => {
+export const deleteGoal = (goalId) => async dispatch => {
   try {
     const { data } = await axios.delete(`${API_URL}/${goalId}`, {
       headers: {
-        "Access-Control-Allow-Origin": "*",
-        Authorization: `Bearer ${token}`,
+        "Access-Control-Allow-Origin": "*"
       },
     });
     //console.log("token", token);
