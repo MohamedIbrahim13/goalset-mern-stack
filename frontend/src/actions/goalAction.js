@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "api/goals";
+const API_URL = "https://goalsetter-api.vercel.app/api/goals";
 
 export const getAll = token => async dispatch => {
   try {
